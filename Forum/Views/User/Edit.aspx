@@ -72,7 +72,7 @@
             
             
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" value="kaydet" />
             </p>
         </fieldset>
 

@@ -146,7 +146,9 @@ namespace Forum.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
+                var sil = (from k in _entity.UserSet select k).Where(i => i.UserId == id).First();
+                _entity.DeleteObject(sil);
+                _entity.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
