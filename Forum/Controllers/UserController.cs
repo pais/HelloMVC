@@ -93,7 +93,7 @@ namespace Forum.Controllers
  
         public ActionResult Edit(int id)
         {
-            var duzenle= (from k in _entity.UserSet select k).Where(i=>i.UserId==id).First() ;
+            var duzenle = (from k in _entity.UserSet select k).Where(i => i.UserId == id).First();
             return View(duzenle);
         }
 
@@ -101,12 +101,25 @@ namespace Forum.Controllers
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection frm)
         {
             try
             {
                 // TODO: Add update logic here
- 
+                byte UserType = Convert.ToByte(frm["UserType"]);
+                byte IsActive = Convert.ToByte(frm["IsActive"]);
+                byte IsApproved = Convert.ToByte(frm["IsApproved"]);
+
+                var duzenle = (from k in _entity.UserSet select k).Where(i => i.UserId == id).First();
+                duzenle.UserName = frm["UserName"];
+                duzenle.Password = frm["Password"];
+                duzenle.UserType = UserType;
+                duzenle.Email = frm["Email"];
+                duzenle.IsActive = IsActive;
+                duzenle.IsApproved = IsApproved;
+
+                _entity.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -120,7 +133,8 @@ namespace Forum.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+            var sil = (from k in _entity.UserSet select k).Where(i => i.UserId == id).First();
+            return View(sil);
         }
 
         //

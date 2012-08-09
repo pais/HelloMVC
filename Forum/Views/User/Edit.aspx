@@ -70,13 +70,6 @@
                 <%: Html.ValidationMessageFor(model => model.IsActive) %>
             </div>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.RegistrationDate) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.RegistrationDate, String.Format("{0:g}", Model.RegistrationDate)) %>
-                <%: Html.ValidationMessageFor(model => model.RegistrationDate) %>
-            </div>
             
             <p>
                 <input type="submit" value="Save" />

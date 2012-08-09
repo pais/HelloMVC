@@ -86,6 +86,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\User\Create.aspx" />
+    <Content Include="Views\User\Delete.aspx" />
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\Index.aspx" />
     <Content Include="Web.config" />
